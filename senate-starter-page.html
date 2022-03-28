@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <title>Senate-Congress-113</title>
+    </head>
+    
+    <body>
+
+        <header>
+            
+            <div class="container d-flex justify-content-between" >
+
+                <div>
+                  <img  src="logo.png" alt="" width="100" height="100">
+                  <a href="#"><b>Data Insight Group</b></a>  
+                </div>
+                <div class="divHeader">
+                  <img src="mail.png" alt="" width="40" height="40">
+                  <a href="www.info@datainsightgroup.net">info@datainsightgroup.net</a>
+                </div>
+                
+            </div>
+
+        </header>
+
+        
+        <nav class="border border-primary navbar navbar-expand-lg navbar-light p-3 mb-2 bg-warning navCss">
+
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="home-starter-page.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Congress 113</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="house-starter-page.html">House</a></li>
+                <li><a class="dropdown-item active" href="#">Senate</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Attendance</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="house-attendance-starter-page.html">House</a></li>
+                <li><a class="dropdown-item" href="senate-attendance-starter-page.html">Senate</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Party Loyalty</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="house-party-loyalty-starter-page.html">House</a></li>
+                <li><a class="dropdown-item" href="senate-party-loyalty-starter-page.html">Senate</a></li>
+              </ul>
+            </li>
+          </ul>
+  
+        </nav>        
+
+
+        <!--Table container-->
+        <div>
+
+            <div class="divAbout">
+                <h2>Senators</h2>
+                <p class="sangria">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+            </div>
+
+            
+            <div id="app">
+
+              <form class="border border-primary d-flex justify-content-center navbar navbar-expand-lg navbar-light p-3 mb-2 bg-warning navCss">
+                <p class="form-check form-check-inline">
+                    <label for="chInd">Independents</label>
+                    <input type="checkbox" value="ID" name="chInd" id="chInd" v-model=check checked>
+                </p>
+                <p class="form-check form-check-inline">
+                    <label for="chDem">Democrats</label>
+                    <input type="checkbox" value="D" name="chDem" id="chDem" v-model=check checked>
+                </p>
+                <p class="form-check form-check-inline">
+                    <label for="chRep">Republicans</label>
+                    <input type="checkbox" value="R" name="chRep" id="chRep" v-model=check checked>
+                </p>  
+              </form>
+
+
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="state">Filter by State: </label>
+                <select v-model="select" class="form-select" id="state">
+                  <option selected value="all">Select..</option>
+                  <option v-for="member in members" v-bind:value="member.state">{{member.state}}</option>
+                </select>
+              </div>
+              
+
+              <table class="table table-success table-striped tableCss">
+                <thead>
+                  <tr>
+                    <th class="text-warning bg-dark">Full Name</th>
+                    <th class="text-warning bg-dark">First and middle name</th>
+                    <th class="text-warning bg-dark">Party</th>
+                    <th class="text-warning bg-dark">State</th>
+                    <th class="text-warning bg-dark">Seniority</th>
+                    <th class="text-warning bg-dark">Percentage of votes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="member in filterStates">
+                    <td><a href="member.url">{{member.first_name}} {{member.middle_name}} {{member.last_name}}</a></td>
+                    <td>{{member.first_name}} {{member.middle_name}}</td>
+                    <td>{{member.party}}</td>
+                    <td>{{member.state}}</td>
+                    <td>{{member.seniority}}</td>
+                    <td>{{member.votes_with_party_pct}} %</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+      
+    	</div>
+
+      <footer class="navCss">
+        <div>
+          <!-- <div class="navbar navbar-expand-lg navbar-light p-3 mb-2 bg-warning"> -->
+          <div class="border border-primary d-flex justify-content-center navbar navbar-expand-lg navbar-light p-3 mb-2 bg-warning">  
+            <p>©️ Data insight Group | All rights reserved</p>
+          </div>
+        </div>
+      </footer>
+    
+      <!-- <script src="pro-congress-113-senate.js"></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+      <script src="senate-and-house-starter.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
